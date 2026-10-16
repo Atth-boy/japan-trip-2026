@@ -195,8 +195,8 @@ function statusPill() {
 
 function renderExpenses() {
   const { total, balance, transfers, byCat } = computeSummary();
-  // ส่วนที่แต่ละคนต้องรับผิดชอบ — โชว์เฉพาะคนที่มีส่วน (คนที่ไม่ได้ร่วมหารเลยไม่ขึ้น)
-  const sharers = balance.filter((b) => b.share > 0.5);
+  // ส่วนที่แต่ละคนต้องรับผิดชอบ — โชว์เฉพาะ 3 คนหลักที่หารกัน (DEFAULT_SPLIT)
+  const sharers = balance.filter((b) => DEFAULT_SPLIT.includes(b.id));
   const header = `
     <header class="lt">
       <div class="lt__row">

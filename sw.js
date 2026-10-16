@@ -1,5 +1,5 @@
 // เปลี่ยน VERSION ทุกครั้งที่แก้ไฟล์ในแอป เพื่อให้เครื่องที่ติดตั้งแล้วโหลดของใหม่
-const VERSION = "v16";
+const VERSION = "v17";
 const SHELL = [
   "./",
   "index.html",
