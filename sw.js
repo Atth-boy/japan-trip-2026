@@ -1,5 +1,5 @@
 // เปลี่ยน VERSION ทุกครั้งที่แก้ไฟล์ในแอป เพื่อให้เครื่องที่ติดตั้งแล้วโหลดของใหม่
-const VERSION = "v6";
+const VERSION = "v7";
 const SHELL = [
   "./",
   "index.html",
@@ -15,7 +15,12 @@ const SHELL = [
 ];
 
 self.addEventListener("install", (e) => {
-  e.waitUntil(caches.open(VERSION).then((c) => c.addAll(SHELL)).then(() => self.skipWaiting()));
+  // cache: "reload" = ข้าม HTTP cache ของเบราว์เซอร์ (GitHub Pages ตั้ง max-age 10 นาที) ไม่งั้นเวอร์ชันใหม่อาจเก็บไฟล์เก่า
+  e.waitUntil(
+    caches.open(VERSION)
+      .then((c) => c.addAll(SHELL.map((u) => new Request(u, { cache: "reload" }))))
+      .then(() => self.skipWaiting()),
+  );
 });
 
 self.addEventListener("activate", (e) => {
@@ -47,7 +52,7 @@ self.addEventListener("fetch", (e) => {
   e.respondWith(
     caches.open(VERSION).then(async (c) => {
       const cached = await c.match(req, { ignoreSearch: true });
-      const fresh = fetch(req)
+      const fresh = fetch(req, { cache: "no-cache" })
         .then((res) => {
           if (res.ok) c.put(req, res.clone());
           return res;
