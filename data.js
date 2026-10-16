@@ -202,6 +202,7 @@ export const DEFAULT_RATE = 0.21; // 1 JPY = 0.21 THB (ตาม Excel)
 
 export const CATEGORIES = [
   { id: "lodging", name: "ที่พัก", color: "#5E5CE6" },
+  { id: "flight", name: "เครื่องบิน", color: "#30B0C7" },
   { id: "transport", name: "เดินทาง", color: "#0A84FF" },
   { id: "ticket", name: "ตั๋ว/เข้าชม", color: "#FF9F0A" },
   { id: "food", name: "อาหาร", color: "#FF453A" },

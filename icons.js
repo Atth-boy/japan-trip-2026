@@ -32,6 +32,7 @@ export const ICON = {
 
 export const CATEGORY_ICON = {
   lodging: ICON.hotel,
+  flight: ICON.plane,
   transport: ICON.train,
   ticket: ICON.ticket,
   food: ICON.food,
