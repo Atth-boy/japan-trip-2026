@@ -97,6 +97,7 @@ function renderPlan() {
           ${cls.includes("is-next") ? '<div class="tl-next">ถัดไป</div>' : ""}
           <div class="tl-title">${esc(it.title)}</div>
           ${it.how ? `<div class="tl-how">${esc(it.how)}</div>` : ""}
+          ${it.price ? `<div class="tl-price">${ICON.yen}<span>${esc(it.price)}</span></div>` : ""}
           ${it.note ? `<div class="tl-note">${esc(it.note)}</div>` : ""}
         </div>
         ${it.map ? `<button class="tl-map" data-action="map" data-q="${esc(it.map)}" data-t="${esc(it.title)}" aria-label="เปิดแผนที่ ${esc(it.title)}">${ICON.map}</button>` : ""}

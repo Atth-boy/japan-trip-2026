@@ -1,4 +1,5 @@
-// แผนทริปจาก "แผน japan 69 re1.xlsx" (ชีต Sheet1.2) — ตัดราคาประมาณการออกตามที่ตกลงกัน
+// แผนทริปจาก "แผน japan 69 re1.xlsx" (ชีต Sheet1.2)
+// price = ราคาประมาณการต่อหน่วยจากคอลัมน์การเดินทาง (ไว้ดูหน้างาน ไม่ใช่ยอดที่จ่ายจริง)
 // mode: plane | car | train | bus | taxi | walk | food | hotel | spot | shop
 
 export const TRIP = {
@@ -51,10 +52,10 @@ export const DAYS = [
     items: [
       { time: "07:45", mode: "plane", title: "ถึงสนามบิน Narita", how: "ผ่าน ตม. และรับกระเป๋า", map: "Narita International Airport" },
       { time: "09:30", mode: "car", title: "รับรถเช่าที่ Narita แล้วขับไป Matsumoto", how: "รถเช่า · ประมาณ 4.5–5 ชม.", note: "สลับกันขับ เผื่อเพลียจากไฟลต์ดึก" },
-      { time: "15:30", mode: "hotel", title: "ถึง Matsumoto · เช็คอิน TABINO HOTEL lit", how: "ทางด่วน (ETC)", map: "TABINO HOTEL lit Matsumoto" },
-      { time: "16:30", mode: "spot", title: "ปราสาท Matsumoto", how: "ต้องซื้อบัตรเข้าชม", map: "Matsumoto Castle" },
+      { time: "15:30", mode: "hotel", title: "ถึง Matsumoto · เช็คอิน TABINO HOTEL lit", price: "ทางด่วน ETC ≈ ¥6,080 / คัน", how: "ทางด่วน (ETC)", map: "TABINO HOTEL lit Matsumoto" },
+      { time: "16:30", mode: "spot", title: "ปราสาท Matsumoto", price: "≈ ¥1,300 / ผู้ใหญ่", how: "ต้องซื้อบัตรเข้าชม", map: "Matsumoto Castle" },
       { time: "18:00", mode: "food", title: "มื้อเย็น" },
-      { time: "19:00", mode: "hotel", title: "กลับที่พัก", how: "จอดรถที่โรงแรม (มีค่าจอด)" },
+      { time: "19:00", mode: "hotel", title: "กลับที่พัก", price: "ค่าจอดรถ ≈ ¥1,100 / คืน", how: "จอดรถที่โรงแรม" },
     ],
   },
   {
@@ -63,13 +64,13 @@ export const DAYS = [
     route: "Matsumoto ⇄ Kamikochi",
     hotel: "tabino",
     items: [
-      { time: "07:00", mode: "car", title: "ออกจากโรงแรมไปลานจอด Sawando", how: "ขับรถเอง · จอดที่ Sawando Parking", map: "Sawando Parking Kamikochi", note: "Kamikochi ห้ามรถส่วนตัวเข้า ต้องต่อรถจาก Sawando" },
-      { time: "08:00", mode: "bus", title: "ต่อรถเข้า Kamikochi", how: "Shuttle bus หรือ Taxi" },
+      { time: "07:00", mode: "car", title: "ออกจากโรงแรมไปลานจอด Sawando", price: "ค่าจอด Sawando ≈ ¥700–800", how: "ขับรถเอง · จอดที่ Sawando Parking", map: "Sawando Parking Kamikochi", note: "Kamikochi ห้ามรถส่วนตัวเข้า ต้องต่อรถจาก Sawando" },
+      { time: "08:00", mode: "bus", title: "ต่อรถเข้า Kamikochi", price: "Shuttle bus ¥1,600 / คน (ไปกลับ ¥3,000) · Taxi ≈ ¥4,300–5,200 / คัน", how: "Shuttle bus หรือ Taxi" },
       { time: "09:00", mode: "walk", title: "เดิน Nature Trail เริ่มที่ Taisho Pond", how: "เดินเท้า", map: "Taisho Pond Kamikochi" },
       { time: "", mode: "food", title: "สะพาน Kappabashi และมื้อกลางวัน", map: "Kappabashi Bridge Kamikochi" },
-      { time: "15:30", mode: "taxi", title: "กลับไป Sawando", how: "Taxi (หรือ Shuttle bus)" },
+      { time: "15:30", mode: "taxi", title: "กลับไป Sawando", price: "Taxi ≈ ¥4,300–5,200 / คัน", how: "Taxi (หรือ Shuttle bus)" },
       { time: "16:30", mode: "car", title: "ขับกลับ Matsumoto", how: "ขับรถเอง" },
-      { time: "18:00", mode: "food", title: "ถึงโรงแรม · มื้อเย็น", how: "จอดรถที่โรงแรม (มีค่าจอด)" },
+      { time: "18:00", mode: "food", title: "ถึงโรงแรม · มื้อเย็น", price: "ค่าจอดรถ ≈ ¥1,100 / คืน", how: "จอดรถที่โรงแรม" },
     ],
   },
   {
@@ -79,7 +80,7 @@ export const DAYS = [
     hotel: "monday",
     items: [
       { time: "09:00", mode: "hotel", title: "อาหารเช้า · เช็คเอาท์ TABINO HOTEL lit" },
-      { time: "09:30", mode: "car", title: "ขับไป Karuizawa", how: "ทางด่วน (ETC)" },
+      { time: "09:30", mode: "car", title: "ขับไป Karuizawa", price: "ทางด่วน ETC ≈ ¥6,080 / คัน", how: "ทางด่วน (ETC)" },
       { time: "11:30", mode: "shop", title: "Karuizawa Prince Shopping Plaza · มื้อกลางวัน", map: "Karuizawa Prince Shopping Plaza" },
       { time: "15:00", mode: "car", title: "ขับเข้าโตเกียว ไป Asakusa", how: "ขับรถเอง" },
       { time: "17:30", mode: "car", title: "ถึงโตเกียว · คืนรถเช่า", how: "คืนรถสาขาใกล้ที่พัก" },
@@ -96,9 +97,9 @@ export const DAYS = [
       { time: "09:00", mode: "shop", title: "Urban Dock LaLaport Toyosu (Akachan Honpo)", map: "Urban Dock LaLaport Toyosu" },
       { time: "11:30", mode: "walk", title: "สวน Toyosu Park", map: "Toyosu Park" },
       { time: "12:30", mode: "food", title: "มื้อกลางวัน" },
-      { time: "13:30", mode: "spot", title: "teamLab Planets TOYOSU", how: "จองบัตรแล้ว", map: "teamLab Planets TOKYO" },
+      { time: "13:30", mode: "spot", title: "teamLab Planets TOYOSU", price: "≈ ¥5,000 / ผู้ใหญ่", how: "จองบัตรแล้ว", map: "teamLab Planets TOKYO" },
       { time: "16:00", mode: "walk", title: "ไปจับจองจุดชมพลุ" },
-      { time: "19:00", mode: "spot", title: "Tokyo Bay Grand Fireworks", how: "จองบัตรแล้ว", highlight: true },
+      { time: "19:00", mode: "spot", title: "Tokyo Bay Grand Fireworks", price: "≈ ¥10,000 / ผู้ใหญ่", how: "จองบัตรแล้ว", highlight: true },
     ],
   },
   {
@@ -109,7 +110,7 @@ export const DAYS = [
     items: [
       { time: "08:00", mode: "spot", title: "Daikanyama T-SITE", how: "รถไฟ / IC card", note: "ย่านดีไซน์และสถาปัตยกรรม", map: "Daikanyama T-SITE" },
       { time: "09:00", mode: "walk", title: "ริมคลอง Nakameguro · Starbucks Reserve Roastery", map: "Starbucks Reserve Roastery Tokyo" },
-      { time: "10:00", mode: "walk", title: "สวน Shinjuku Gyoen", how: "ต้องซื้อบัตรเข้าชม", map: "Shinjuku Gyoen National Garden" },
+      { time: "10:00", mode: "walk", title: "สวน Shinjuku Gyoen", price: "≈ ¥500 / ผู้ใหญ่", how: "ต้องซื้อบัตรเข้าชม", map: "Shinjuku Gyoen National Garden" },
       { time: "12:00", mode: "food", title: "มื้อกลางวันที่ Shinjuku" },
       { time: "13:30", mode: "walk", title: "สถาปัตยกรรมและคาเฟ่ Omotesando / Aoyama", map: "Omotesando" },
       { time: "16:00", mode: "spot", title: "Shibuya Sky · Scramble Crossing · Hachiko", map: "Shibuya Sky" },
@@ -122,15 +123,15 @@ export const DAYS = [
     route: "Asakusa ⇄ Nikko",
     hotel: "monday",
     items: [
-      { time: "06:30", mode: "train", title: "Tobu Limited Express ไป Nikko", how: "Tobu Asakusa → Tobu-Nikko · Revaty · E-ticket", note: "ใช้คู่กับ NIKKO PASS World Heritage Area (2 วัน)", map: "Tobu Asakusa Station" },
-      { time: "08:22", mode: "train", title: "ถึงสถานี Nikko", how: "ซื้อ Chuzenji Onsen Free Pass ที่ Tourist Center ในสถานี", map: "Tobu-Nikko Station" },
+      { time: "06:30", mode: "train", title: "Tobu Limited Express ไป Nikko", price: "Tobu ≈ ¥1,500–2,000 · NIKKO PASS ≈ ¥3,000 / ผู้ใหญ่", how: "Tobu Asakusa → Tobu-Nikko · Revaty · E-ticket", note: "ใช้คู่กับ NIKKO PASS World Heritage Area (2 วัน)", map: "Tobu Asakusa Station" },
+      { time: "08:22", mode: "train", title: "ถึงสถานี Nikko", price: "Chuzenji Onsen Free Pass ≈ ¥2,300 / ผู้ใหญ่", how: "ซื้อ Chuzenji Onsen Free Pass ที่ Tourist Center ในสถานี", map: "Tobu-Nikko Station" },
       { time: "08:45", mode: "bus", title: "นั่งบัสขึ้นเขา", how: "ป้าย 2A หรือ 2C · สาย 26 ไป Chuzenji / Yumoto Onsen" },
       { time: "11:30", mode: "spot", title: "น้ำตก Kegon", map: "Kegon Falls" },
       { time: "11:50", mode: "food", title: "เดินไปทะเลสาบ Chuzenji · มื้อกลางวัน", how: "เดินเท้า", map: "Lake Chuzenji" },
       { time: "12:50", mode: "bus", title: "นั่งบัสลงเขา", how: "ป้าย No.26 → ลงที่ No.9 Nishisando" },
-      { time: "13:30", mode: "spot", title: "ศาลเจ้า Toshogu · วัด Rinno-ji", how: "ต้องซื้อบัตรเข้าชม", map: "Nikko Toshogu" },
-      { time: "15:00", mode: "spot", title: "สะพาน Shinkyo", map: "Shinkyo Bridge Nikko" },
-      { time: "17:44", mode: "train", title: "Tobu Limited Express กลับโตเกียว", how: "นั่งบัสกลับสถานี Tobu-Nikko ก่อน · E-ticket" },
+      { time: "13:30", mode: "spot", title: "ศาลเจ้า Toshogu · วัด Rinno-ji", price: "≈ ¥1,600 / ผู้ใหญ่", how: "ต้องซื้อบัตรเข้าชม", map: "Nikko Toshogu" },
+      { time: "15:00", mode: "spot", title: "สะพาน Shinkyo", price: "≈ ¥300 / ผู้ใหญ่", map: "Shinkyo Bridge Nikko" },
+      { time: "17:44", mode: "train", title: "Tobu Limited Express กลับโตเกียว", price: "≈ ¥1,500–2,000 / ผู้ใหญ่", how: "นั่งบัสกลับสถานี Tobu-Nikko ก่อน · E-ticket" },
       { time: "18:30", mode: "food", title: "มื้อเย็นที่ Asakusa" },
     ],
   },
@@ -145,7 +146,7 @@ export const DAYS = [
       { time: "11:00", mode: "shop", title: "แกดเจ็ตที่ Akihabara", map: "Akihabara" },
       { time: "15:00", mode: "walk", title: "เดินเล่น Ginza หรือ Arcakit Kinshicho", map: "Ginza" },
       { time: "18:00", mode: "food", title: "มื้อเย็น" },
-      { time: "21:00", mode: "train", title: "รถไฟตรงไปสนามบิน Haneda", how: "Asakusa → Haneda · Airport Limited Express", map: "Haneda Airport Terminal 3" },
+      { time: "21:00", mode: "train", title: "รถไฟตรงไปสนามบิน Haneda", price: "≈ ¥610 / ผู้ใหญ่", how: "Asakusa → Haneda · Airport Limited Express", map: "Haneda Airport Terminal 3" },
     ],
   },
   {
