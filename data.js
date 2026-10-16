@@ -184,13 +184,3 @@ export const CATEGORIES = [
   { id: "shopping", name: "ช้อปปิ้ง", color: "#BF5AF2" },
   { id: "other", name: "อื่นๆ", color: "#8E8E93" },
 ];
-
-// รายการที่ Excel ระบุคนจ่ายไว้แล้ว — ใช้ id คงที่ กดนำเข้าซ้ำก็ไม่ซ้ำ
-export const SEED_EXPENSES = [
-  { id: "seed-monday", title: "MONday Apart Premium ASAKUSA I (4 คืน)", category: "lodging", amount: 36000, currency: "THB", paidBy: "boy" },
-  { id: "seed-teamlab", title: "teamLab Planets × 4", category: "ticket", amount: 20000, currency: "JPY", paidBy: "bim", date: "2026-10-24" },
-  { id: "seed-fireworks", title: "Tokyo Bay Grand Fireworks × 4", category: "ticket", amount: 40000, currency: "JPY", paidBy: "bim", date: "2026-10-24" },
-  { id: "seed-tobu-go", title: "Tobu Limited Express ไป Nikko × 4", category: "transport", amount: 6000, currency: "JPY", paidBy: "boy", date: "2026-10-26" },
-  { id: "seed-nikkopass", title: "NIKKO PASS World Heritage (2 วัน) × 4", category: "transport", amount: 12000, currency: "JPY", paidBy: "boy", date: "2026-10-26" },
-  { id: "seed-tobu-back", title: "Tobu Limited Express กลับโตเกียว × 4", category: "transport", amount: 8000, currency: "JPY", paidBy: "boy", date: "2026-10-26" },
-];

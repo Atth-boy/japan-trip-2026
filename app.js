@@ -1,4 +1,4 @@
-import { TRIP, DAYS, HOTELS, FLIGHTS, TIPS, CATEGORIES, SEED_EXPENSES, DEFAULT_MEMBERS, DEFAULT_RATE } from "./data.js";
+import { TRIP, DAYS, HOTELS, FLIGHTS, TIPS, CATEGORIES, DEFAULT_MEMBERS, DEFAULT_RATE } from "./data.js";
 import { ICON, CATEGORY_ICON, MODE_COLOR } from "./icons.js";
 import { createStore, getTripCode, setTripCode, canSync } from "./store.js";
 
@@ -228,7 +228,6 @@ function renderExpenses() {
         <h3>ยังไม่มีรายการ</h3>
         <p>บันทึกค่าที่พัก ค่าเดินทาง ค่าอาหาร และใครเป็นคนจ่าย แอปจะคำนวณให้ว่าใครต้องโอนให้ใคร</p>
         <button class="btn-filled" data-action="add">${ICON.plus} เพิ่มค่าใช้จ่าย</button>
-        <button class="btn-tinted" data-action="seed">นำเข้า ${SEED_EXPENSES.length} รายการที่จ่ายแล้วจาก Excel</button>
       </div>`;
   }
 
@@ -608,11 +607,7 @@ document.addEventListener("click", async (ev) => {
   } else if (a === "add") openSheet(null);
   else if (a === "map") openMapSheet(el.dataset.q, el.dataset.t);
   else if (a === "edit") openSheet(state.expenses.find((e) => e.id === el.dataset.id));
-  else if (a === "seed") {
-    SEED_EXPENSES.forEach((s, k) =>
-      store.saveExpense({ date: "", note: "จาก Excel", splitAmong: state.settings.members.map((m) => m.id), createdAt: Date.now() + k, ...s }),
-    );
-  } else if (a === "rename") {
+  else if (a === "rename") {
     const m = state.settings.members.find((x) => x.id === el.dataset.id);
     const name = prompt("ชื่อที่แสดง", m.name)?.trim();
     if (name) store.saveSettings({ ...state.settings, members: state.settings.members.map((x) => (x.id === m.id ? { ...x, name } : x)) });
