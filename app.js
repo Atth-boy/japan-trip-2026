@@ -96,6 +96,7 @@ function renderPlan() {
         <div class="tl-body">
           ${cls.includes("is-next") ? '<div class="tl-next">ถัดไป</div>' : ""}
           <div class="tl-title">${esc(it.title)}</div>
+          ${it.who ? `<div class="who">${ICON.person}<span>${esc(it.who)}</span></div>` : ""}
           ${it.how ? `<div class="tl-how">${esc(it.how)}</div>` : ""}
           ${it.price ? `<div class="tl-price">${ICON.yen}<span>${esc(it.price)}</span></div>` : ""}
           ${it.note ? `<div class="tl-note">${esc(it.note)}</div>` : ""}
@@ -112,7 +113,7 @@ function renderPlan() {
       <button class="card hotel" data-action="map" data-q="${esc(hotel.map)}" data-t="${esc(hotel.name)}">
         <span class="icon-tile" style="background:var(--purple)">${ICON.hotel}</span>
         <span class="hotel__text">
-          <span class="hotel__label">ที่พักคืนนี้ · คืนที่ ${nightNo}/${hotel.nights}</span>
+          <span class="hotel__label">ที่พักคืนนี้${hotel.who ? ` · เฉพาะ ${esc(hotel.who)}` : ` · คืนที่ ${nightNo}/${hotel.nights}`}</span>
           <span class="hotel__name">${esc(hotel.name)}</span>
           <span class="hotel__city">${esc(hotel.city)}</span>
         </span>
@@ -329,6 +330,7 @@ function renderInfo() {
           <span class="row__main">
             <span class="row__title">${esc(f.from)} <span class="arrow">${ICON.arrow}</span> ${esc(f.to)}</span>
             <span class="row__sub">${esc(f.airline)} ${esc(f.no)} · ออก ${esc(f.dep)} · ถึง ${esc(f.arr)}</span>
+            ${f.who ? `<span class="who">${ICON.person}<span>${esc(f.who)}</span></span>` : ""}
           </span>
         </li>`,
       ).join("")}
@@ -342,6 +344,7 @@ function renderInfo() {
           <span class="row__main">
             <span class="row__title">${esc(h.name)}</span>
             <span class="row__sub">${esc(h.city)} · ${fmtDay.format(parseDate(h.checkIn))} – ${fmtDay.format(parseDate(h.checkOut))} · ${h.nights} คืน</span>
+            ${h.who ? `<span class="who">${ICON.person}<span>เฉพาะ ${esc(h.who)}</span></span>` : ""}
           </span>
           <span class="chev">${ICON.chevron}</span>
         </button></li>`,
