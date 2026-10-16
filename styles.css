@@ -433,12 +433,11 @@ svg { width: 1em; height: 1em; display: block; flex: none; }
   align-items: flex-start;
   gap: 4px;
   margin-top: 3px;
-  font-size: 13px;
-  font-weight: 500;
+  font-size: 14px;
   font-variant-numeric: tabular-nums;
-  color: var(--orange);
+  color: var(--label-2);
 }
-.tl-price svg { font-size: 13px; margin-top: 2px; }
+.tl-price svg { font-size: 13px; margin-top: 3px; }
 .tl-note {
   font-size: 13px;
   margin-top: 6px;
