@@ -174,6 +174,9 @@ export const DEFAULT_MEMBERS = [
   { id: "bim", name: "Bim" },
 ];
 
+// ค่าเริ่มต้นของ "หารกับ" ตอนเพิ่มรายการใหม่ (Jaruwan ไม่ร่วมหาร) — แก้ทีละรายการได้
+export const DEFAULT_SPLIT = ["boy", "teera", "bim"];
+
 export const DEFAULT_RATE = 0.21; // 1 JPY = 0.21 THB (ตาม Excel)
 
 export const CATEGORIES = [

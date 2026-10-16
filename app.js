@@ -1,4 +1,4 @@
-import { TRIP, DAYS, HOTELS, FLIGHTS, TIPS, CATEGORIES, DEFAULT_MEMBERS, DEFAULT_RATE } from "./data.js";
+import { TRIP, DAYS, HOTELS, FLIGHTS, TIPS, CATEGORIES, DEFAULT_MEMBERS, DEFAULT_SPLIT, DEFAULT_RATE } from "./data.js";
 import { ICON, CATEGORY_ICON, MODE_COLOR } from "./icons.js";
 import { createStore, getTripCode, setTripCode, canSync } from "./store.js";
 
@@ -193,7 +193,8 @@ function statusPill() {
 
 function renderExpenses() {
   const { total, balance, transfers, byCat } = computeSummary();
-  const n = state.settings.members.length;
+  // เฉลี่ยเฉพาะคนที่มีส่วนต้องจ่าย (คนที่ไม่ได้ร่วมหารเลยไม่นับ)
+  const n = balance.filter((b) => b.share > 0.5).length || state.settings.members.length;
   const header = `
     <header class="lt">
       <div class="lt__row">
@@ -390,7 +391,7 @@ function openSheet(expense) {
     currency: "JPY",
     category: "food",
     paidBy: members[0].id,
-    splitAmong: members.map((m) => m.id),
+    splitAmong: members.filter((m) => DEFAULT_SPLIT.includes(m.id)).map((m) => m.id),
     date: defaultDate,
     note: "",
   };
