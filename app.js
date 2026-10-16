@@ -666,6 +666,9 @@ $(".tabbar").innerHTML = [
   .map(([t, ic, label]) => `<button data-tab="${t}" role="tab">${ic}<span>${label}</span></button>`)
   .join("");
 
+// iOS ไม่สน user-scalable=no — กัน pinch zoom ด้วย gesture events
+["gesturestart", "gesturechange", "gestureend"].forEach((t) => document.addEventListener(t, (e) => e.preventDefault()));
+
 // ---------- boot ----------
 const hashCode = new URLSearchParams(location.hash.slice(1)).get("trip");
 if (hashCode) {
