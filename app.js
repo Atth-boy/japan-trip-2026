@@ -54,9 +54,9 @@ function writePref(k, v) {
 }
 
 const AVATAR_COLORS = ["var(--blue)", "var(--pink)", "var(--green)", "var(--orange)"];
+const memberColor = (id) => AVATAR_COLORS[Math.max(0, state.settings.members.findIndex((x) => x.id === id)) % AVATAR_COLORS.length];
 const avatar = (m) => {
-  const i = state.settings.members.findIndex((x) => x.id === m.id);
-  return `<span class="avatar" style="--av:${AVATAR_COLORS[i % AVATAR_COLORS.length]}">${esc(m.name.slice(0, 1).toUpperCase())}</span>`;
+  return `<span class="avatar" style="--av:${memberColor(m.id)}">${esc(m.name.slice(0, 1).toUpperCase())}</span>`;
 };
 const memberName = (id) => state.settings.members.find((m) => m.id === id)?.name ?? id;
 const toThb = (e) => (e.currency === "THB" ? Number(e.amount) : Number(e.amount) * state.settings.rate);
@@ -195,8 +195,8 @@ function statusPill() {
 
 function renderExpenses() {
   const { total, balance, transfers, byCat } = computeSummary();
-  // เฉลี่ยเฉพาะคนที่มีส่วนต้องจ่าย (คนที่ไม่ได้ร่วมหารเลยไม่นับ)
-  const n = balance.filter((b) => b.share > 0.5).length || state.settings.members.length;
+  // ส่วนที่แต่ละคนต้องรับผิดชอบ — โชว์เฉพาะคนที่มีส่วน (คนที่ไม่ได้ร่วมหารเลยไม่ขึ้น)
+  const sharers = balance.filter((b) => b.share > 0.5);
   const header = `
     <header class="lt">
       <div class="lt__row">
@@ -208,10 +208,13 @@ function renderExpenses() {
     <section class="card total">
       <div class="total__label">ยอดรวมทั้งทริป</div>
       <div class="total__amt">${baht(total)}</div>
-      <div class="total__meta">
-        <span>เฉลี่ยคนละ <b>${baht(total / n)}</b></span>
-        <span>≈ ${yen(total / state.settings.rate)}</span>
-      </div>
+      <div class="total__meta"><span>≈ ${yen(total / state.settings.rate)}</span></div>
+      ${sharers.length ? `<div class="shares" style="--cols:${sharers.length}">${sharers
+        .map((b) => `<div class="share">
+            <span class="share__name"><i style="background:${memberColor(b.id)}"></i>${esc(b.name)}</span>
+            <span class="share__amt">${baht(b.share)}</span>
+          </div>`)
+        .join("")}</div>` : ""}
       ${total > 0 ? `<div class="catbar">${CATEGORIES.filter((c) => byCat[c.id] > 0)
         .map((c) => `<span style="flex:${byCat[c.id]};background:${c.color}" title="${esc(c.name)}"></span>`)
         .join("")}</div>

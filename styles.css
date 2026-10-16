@@ -497,6 +497,34 @@ svg { width: 1em; height: 1em; display: block; flex: none; }
 .total__label { font-size: 14px; opacity: 0.85; font-weight: 500; }
 .total__amt { font: 700 38px/1.15 var(--font-display); font-variant-numeric: tabular-nums; margin: 2px 0 6px; }
 .total__meta { display: flex; justify-content: space-between; font-size: 14px; opacity: 0.92; gap: 8px; flex-wrap: wrap; }
+.shares {
+  display: grid;
+  grid-template-columns: repeat(var(--cols), minmax(0, 1fr));
+  gap: 6px;
+  margin-top: 12px;
+}
+.share {
+  min-width: 0;
+  padding: 8px 10px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.16);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.share__name {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  font-weight: 500;
+  opacity: 0.92;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.share__name i { width: 8px; height: 8px; border-radius: 50%; flex: none; box-shadow: 0 0 0 1.5px rgba(255, 255, 255, 0.85); }
+.share__amt { font-size: 16px; font-weight: 700; font-variant-numeric: tabular-nums; white-space: nowrap; }
 .catbar {
   display: flex;
   height: 8px;
@@ -707,3 +735,7 @@ svg { width: 1em; height: 1em; display: block; flex: none; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }
+
+/* 4 คนในแถวเดียว: ย่อตัวเลขให้ยอดหลักแสนไม่ล้นช่อง */
+.shares[style*="--cols:4"] .share { padding: 8px; }
+.shares[style*="--cols:4"] .share__amt { font-size: 14px; }
