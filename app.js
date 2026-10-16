@@ -16,7 +16,11 @@ const fmtDayLong = new Intl.DateTimeFormat("th-TH", { weekday: "long", day: "num
 const fmtWeekday = new Intl.DateTimeFormat("th-TH", { weekday: "narrow" });
 const baht = (n) => "฿" + Math.round(n).toLocaleString("th-TH");
 const yen = (n) => "¥" + Math.round(n).toLocaleString("th-TH");
-const mapUrl = (q) => `https://maps.apple.com/?q=${encodeURIComponent(q)}`;
+const MAPS = [
+  { label: "เปิดใน Google Maps", url: (q) => `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(q)}` },
+  { label: "นำทางด้วย Google Maps", url: (q) => `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(q)}&travelmode=transit` },
+  { label: "เปิดใน Apple Maps", url: (q) => `https://maps.apple.com/?q=${encodeURIComponent(q)}` },
+];
 const uid = () => (crypto.randomUUID ? crypto.randomUUID() : String(Date.now()) + Math.random().toString(16).slice(2));
 const daysBetween = (a, b) => Math.round((parseDate(b) - parseDate(a)) / 86400000);
 
@@ -95,7 +99,7 @@ function renderPlan() {
           ${it.how ? `<div class="tl-how">${esc(it.how)}</div>` : ""}
           ${it.note ? `<div class="tl-note">${esc(it.note)}</div>` : ""}
         </div>
-        ${it.map ? `<a class="tl-map" href="${mapUrl(it.map)}" target="_blank" rel="noopener" aria-label="เปิดแผนที่ ${esc(it.title)}">${ICON.map}</a>` : ""}
+        ${it.map ? `<button class="tl-map" data-action="map" data-q="${esc(it.map)}" data-t="${esc(it.title)}" aria-label="เปิดแผนที่ ${esc(it.title)}">${ICON.map}</button>` : ""}
       </li>`;
     })
     .join("");
@@ -104,7 +108,7 @@ function renderPlan() {
   if (hotel) {
     const nightNo = daysBetween(hotel.checkIn, day.date) + 1;
     hotelCard = `
-      <a class="card hotel" href="${mapUrl(hotel.map)}" target="_blank" rel="noopener">
+      <button class="card hotel" data-action="map" data-q="${esc(hotel.map)}" data-t="${esc(hotel.name)}">
         <span class="icon-tile" style="background:var(--purple)">${ICON.hotel}</span>
         <span class="hotel__text">
           <span class="hotel__label">ที่พักคืนนี้ · คืนที่ ${nightNo}/${hotel.nights}</span>
@@ -112,7 +116,7 @@ function renderPlan() {
           <span class="hotel__city">${esc(hotel.city)}</span>
         </span>
         <span class="chev">${ICON.chevron}</span>
-      </a>`;
+      </button>`;
   }
 
   return `
@@ -332,14 +336,14 @@ function renderInfo() {
     <h3 class="section-title">ที่พัก</h3>
     <ul class="card list">
       ${HOTELS.map(
-        (h) => `<li><a class="row row--btn" href="${mapUrl(h.map)}" target="_blank" rel="noopener">
+        (h) => `<li><button class="row row--btn" data-action="map" data-q="${esc(h.map)}" data-t="${esc(h.name)}">
           <span class="icon-tile" style="background:var(--purple)">${ICON.hotel}</span>
           <span class="row__main">
             <span class="row__title">${esc(h.name)}</span>
             <span class="row__sub">${esc(h.city)} · ${fmtDay.format(parseDate(h.checkIn))} – ${fmtDay.format(parseDate(h.checkOut))} · ${h.nights} คืน</span>
           </span>
           <span class="chev">${ICON.chevron}</span>
-        </a></li>`,
+        </button></li>`,
       ).join("")}
     </ul>
 
@@ -522,6 +526,29 @@ function openSheet(expense) {
   });
 }
 
+// ---------- Map action sheet ----------
+function openMapSheet(q, title) {
+  const root = document.createElement("div");
+  root.className = "sheet-backdrop action-backdrop";
+  root.innerHTML = `
+    <div class="action-sheet" role="dialog" aria-modal="true" aria-label="เปิดแผนที่">
+      <div class="action-group">
+        <div class="action-title">${esc(title)}</div>
+        ${MAPS.map((m) => `<a class="action-btn" href="${m.url(q)}" target="_blank" rel="noopener">${esc(m.label)}</a>`).join("")}
+      </div>
+      <div class="action-group"><button class="action-btn strong" data-close>ยกเลิก</button></div>
+    </div>`;
+  const close = () => {
+    root.classList.remove("is-open");
+    setTimeout(() => root.remove(), 280);
+  };
+  root.addEventListener("click", (ev) => {
+    if (ev.target === root || ev.target.closest("[data-close]") || ev.target.closest("a")) close();
+  });
+  document.body.appendChild(root);
+  requestAnimationFrame(() => root.classList.add("is-open"));
+}
+
 function parseAmount(v) {
   const n = Number(String(v).replace(/[^\d.]/g, ""));
   return Number.isFinite(n) ? n : 0;
@@ -579,6 +606,7 @@ document.addEventListener("click", async (ev) => {
     state.expView = el.dataset.v;
     render();
   } else if (a === "add") openSheet(null);
+  else if (a === "map") openMapSheet(el.dataset.q, el.dataset.t);
   else if (a === "edit") openSheet(state.expenses.find((e) => e.id === el.dataset.id));
   else if (a === "seed") {
     SEED_EXPENSES.forEach((s, k) =>
