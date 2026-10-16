@@ -330,6 +330,7 @@ function renderInfo() {
           <span class="row__main">
             <span class="row__title">${esc(f.from)} <span class="arrow">${ICON.arrow}</span> ${esc(f.to)}</span>
             <span class="row__sub">${esc(f.airline)} ${esc(f.no)} · ออก ${esc(f.dep)} · ถึง ${esc(f.arr)}</span>
+            ${f.seat ? `<span class="row__sub">ที่นั่ง ${esc(f.seat)}</span>` : ""}
             ${f.who ? `<span class="who">${ICON.person}<span>${esc(f.who)}</span></span>` : ""}
           </span>
         </li>`,
