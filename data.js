@@ -42,9 +42,9 @@ export const HOTELS = [
 ];
 
 export const FLIGHTS = [
-  { no: "NH808", airline: "ANA", from: "BKK", to: "NRT", dep: "20 ต.ค. 23:35", arr: "21 ต.ค. 07:45", seat: "38J, 38H · Economy (K)", who: "Boy · Jaruwan" },
+  { no: "NH808", airline: "ANA", from: "BKK", to: "NRT T1", dep: "20 ต.ค. 23:35", arr: "21 ต.ค. 07:45", who: "Boy · Jaruwan" },
   { no: "XJ600", airline: "AirAsia", from: "DMK", to: "NRT T2", dep: "20 ต.ค. 23:55", arr: "21 ต.ค. 08:00", who: "Teera · Bim" },
-  { no: "NH877", airline: "ANA (AirJapan)", from: "HND T2", to: "BKK", dep: "28 ต.ค. 01:25", arr: "28 ต.ค. 06:30", seat: "29J, 29H · Economy (K)", who: "Boy · Jaruwan" },
+  { no: "NH877", airline: "ANA", from: "HND T2", to: "BKK", dep: "28 ต.ค. 01:25", arr: "28 ต.ค. 06:30", who: "Boy · Jaruwan" },
   { no: "XJ603", airline: "AirAsia", from: "NRT T2", to: "DMK", dep: "28 ต.ค. 12:10", arr: "28 ต.ค. 17:40", who: "Teera · Bim" },
 ];
 
@@ -54,7 +54,7 @@ export const DAYS = [
     title: "ออกเดินทาง",
     route: "Bangkok → Tokyo",
     items: [
-      { time: "23:35", mode: "plane", title: "บินออกจากสุวรรณภูมิ", how: "ANA NH808 · ที่นั่ง 38J, 38H · นอนพักบนเครื่อง", who: "Boy · Jaruwan", map: "Suvarnabhumi Airport" },
+      { time: "23:35", mode: "plane", title: "บินออกจากสุวรรณภูมิ", how: "ANA NH808 · นอนพักบนเครื่อง", who: "Boy · Jaruwan", map: "Suvarnabhumi Airport" },
       { time: "23:55", mode: "plane", title: "บินออกจากดอนเมือง (Terminal 1)", how: "AirAsia XJ600 · นอนพักบนเครื่อง", who: "Teera · Bim", map: "Don Mueang International Airport" },
     ],
   },
@@ -64,7 +64,7 @@ export const DAYS = [
     route: "Narita → Matsumoto",
     hotel: "tabino",
     items: [
-      { time: "07:45", mode: "plane", title: "ถึงสนามบิน Narita", how: "ANA NH808 · ผ่าน ตม. และรับกระเป๋า", who: "Boy · Jaruwan", map: "Narita International Airport Terminal 1" },
+      { time: "07:45", mode: "plane", title: "ถึงสนามบิน Narita Terminal 1", how: "ANA NH808 · ผ่าน ตม. และรับกระเป๋า", who: "Boy · Jaruwan", map: "Narita International Airport Terminal 1" },
       { time: "08:00", mode: "plane", title: "ถึงสนามบิน Narita Terminal 2", how: "AirAsia XJ600 · ผ่าน ตม. และรับกระเป๋า", who: "Teera · Bim", note: "ANA ลง Terminal 1 · AirAsia ลง Terminal 2 — นัดจุดเจอกันก่อนไปรับรถเช่า", map: "Narita International Airport Terminal 2" },
       { time: "09:30", mode: "car", title: "รับรถเช่าที่ Narita แล้วขับไป Matsumoto", how: "รถเช่า · ประมาณ 4.5–5 ชม.", note: "สลับกันขับ เผื่อเพลียจากไฟลต์ดึก" },
       { time: "15:30", mode: "hotel", title: "ถึง Matsumoto · เช็คอิน TABINO HOTEL lit", price: "ทางด่วน ETC ≈ ¥6,080 / คัน", how: "ทางด่วน (ETC)", map: "TABINO HOTEL lit Matsumoto" },
@@ -170,7 +170,7 @@ export const DAYS = [
     title: "เดินทางกลับ",
     route: "Haneda / Narita → Bangkok",
     items: [
-      { time: "01:25", mode: "plane", title: "บินออกจาก Haneda Terminal 2", how: "ANA NH877 · ที่นั่ง 29J, 29H · ให้บริการโดย AirJapan", who: "Boy · Jaruwan", map: "Haneda Airport Terminal 2" },
+      { time: "01:25", mode: "plane", title: "บินออกจาก Haneda Terminal 2", how: "ANA NH877", who: "Boy · Jaruwan", map: "Haneda Airport Terminal 2" },
       { time: "06:30", mode: "plane", title: "ถึงสุวรรณภูมิ", who: "Boy · Jaruwan" },
       { time: "09:00", mode: "hotel", title: "เช็คเอาท์ MONday Apart", who: "Teera · Bim" },
       { time: "09:15", mode: "train", title: "เดินทางไปสนามบิน Narita Terminal 2", how: "Keisei Access Express จาก Asakusa (มีขบวนตรงถึง Narita) · ประมาณ 1 ชม.", note: "เวลาออกเป็นเวลาแนะนำ เผื่อเช็คอินก่อนบิน 2–3 ชม.", who: "Teera · Bim", map: "Asakusa Station" },
