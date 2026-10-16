@@ -1,6 +1,6 @@
 // แผนทริปจาก "แผน japan 69 re1.xlsx" (ชีต Sheet1.2)
 // price = ราคาประมาณการต่อหน่วยจากคอลัมน์การเดินทาง (ไว้ดูหน้างาน ไม่ใช่ยอดที่จ่ายจริง)
-// who = ระบุเฉพาะรายการที่ไม่ได้ไปทั้ง 4 คน (Boy · Jaruwan บิน ANA / Teera · Bim บิน AirAsia)
+// who = ระบุเฉพาะรายการที่ไม่ได้ไปทั้ง 4 คน (Boy · Mom บิน ANA / Ik · Bim บิน AirAsia)
 // mode: plane | car | train | bus | taxi | walk | food | hotel | spot | shop
 
 export const TRIP = {
@@ -36,16 +36,16 @@ export const HOTELS = [
     checkIn: "2026-10-27",
     checkOut: "2026-10-28",
     nights: 1,
-    who: "Teera · Bim",
+    who: "Ik · Bim",
     map: "MONday Apart Premium Asakusa",
   },
 ];
 
 export const FLIGHTS = [
-  { no: "NH808", airline: "ANA", from: "BKK", to: "NRT T1", dep: "20 ต.ค. 23:35", arr: "21 ต.ค. 07:45", who: "Boy · Jaruwan" },
-  { no: "XJ600", airline: "AirAsia", from: "DMK", to: "NRT T2", dep: "20 ต.ค. 23:55", arr: "21 ต.ค. 08:00", who: "Teera · Bim" },
-  { no: "NH877", airline: "ANA", from: "HND T2", to: "BKK", dep: "28 ต.ค. 01:25", arr: "28 ต.ค. 06:30", who: "Boy · Jaruwan" },
-  { no: "XJ603", airline: "AirAsia", from: "NRT T2", to: "DMK", dep: "28 ต.ค. 12:10", arr: "28 ต.ค. 17:40", who: "Teera · Bim" },
+  { no: "NH808", airline: "ANA", from: "BKK", to: "NRT T1", dep: "20 ต.ค. 23:35", arr: "21 ต.ค. 07:45", who: "Boy · Mom" },
+  { no: "XJ600", airline: "AirAsia", from: "DMK", to: "NRT T2", dep: "20 ต.ค. 23:55", arr: "21 ต.ค. 08:00", who: "Ik · Bim" },
+  { no: "NH877", airline: "ANA", from: "HND T2", to: "BKK", dep: "28 ต.ค. 01:25", arr: "28 ต.ค. 06:30", who: "Boy · Mom" },
+  { no: "XJ603", airline: "AirAsia", from: "NRT T2", to: "DMK", dep: "28 ต.ค. 12:10", arr: "28 ต.ค. 17:40", who: "Ik · Bim" },
 ];
 
 export const DAYS = [
@@ -54,8 +54,8 @@ export const DAYS = [
     title: "ออกเดินทาง",
     route: "Bangkok → Tokyo",
     items: [
-      { time: "23:35", mode: "plane", title: "บินออกจากสุวรรณภูมิ", how: "ANA NH808 · นอนพักบนเครื่อง", who: "Boy · Jaruwan", map: "Suvarnabhumi Airport" },
-      { time: "23:55", mode: "plane", title: "บินออกจากดอนเมือง (Terminal 1)", how: "AirAsia XJ600 · นอนพักบนเครื่อง", who: "Teera · Bim", map: "Don Mueang International Airport" },
+      { time: "23:35", mode: "plane", title: "บินออกจากสุวรรณภูมิ", how: "ANA NH808 · นอนพักบนเครื่อง", who: "Boy · Mom", map: "Suvarnabhumi Airport" },
+      { time: "23:55", mode: "plane", title: "บินออกจากดอนเมือง (Terminal 1)", how: "AirAsia XJ600 · นอนพักบนเครื่อง", who: "Ik · Bim", map: "Don Mueang International Airport" },
     ],
   },
   {
@@ -64,8 +64,8 @@ export const DAYS = [
     route: "Narita → Matsumoto",
     hotel: "tabino",
     items: [
-      { time: "07:45", mode: "plane", title: "ถึงสนามบิน Narita Terminal 1", how: "ANA NH808 · ผ่าน ตม. และรับกระเป๋า", who: "Boy · Jaruwan", map: "Narita International Airport Terminal 1" },
-      { time: "08:00", mode: "plane", title: "ถึงสนามบิน Narita Terminal 2", how: "AirAsia XJ600 · ผ่าน ตม. และรับกระเป๋า", who: "Teera · Bim", note: "ANA ลง Terminal 1 · AirAsia ลง Terminal 2 — นัดจุดเจอกันก่อนไปรับรถเช่า", map: "Narita International Airport Terminal 2" },
+      { time: "07:45", mode: "plane", title: "ถึงสนามบิน Narita Terminal 1", how: "ANA NH808 · ผ่าน ตม. และรับกระเป๋า", who: "Boy · Mom", map: "Narita International Airport Terminal 1" },
+      { time: "08:00", mode: "plane", title: "ถึงสนามบิน Narita Terminal 2", how: "AirAsia XJ600 · ผ่าน ตม. และรับกระเป๋า", who: "Ik · Bim", note: "ANA ลง Terminal 1 · AirAsia ลง Terminal 2 — นัดจุดเจอกันก่อนไปรับรถเช่า", map: "Narita International Airport Terminal 2" },
       { time: "09:30", mode: "car", title: "รับรถเช่าที่ Narita แล้วขับไป Matsumoto", how: "รถเช่า · ประมาณ 4.5–5 ชม.", note: "สลับกันขับ เผื่อเพลียจากไฟลต์ดึก" },
       { time: "15:30", mode: "hotel", title: "ถึง Matsumoto · เช็คอิน TABINO HOTEL lit", price: "ทางด่วน ETC ≈ ¥6,080 / คัน", how: "ทางด่วน (ETC)", map: "TABINO HOTEL lit Matsumoto" },
       { time: "16:30", mode: "spot", title: "ปราสาท Matsumoto", price: "≈ ¥1,300 / ผู้ใหญ่", how: "ต้องซื้อบัตรเข้าชม", map: "Matsumoto Castle" },
@@ -157,12 +157,12 @@ export const DAYS = [
     hotel: "monday-ext",
     items: [
       { time: "07:30", mode: "walk", title: "สวน Ueno Park", map: "Ueno Park" },
-      { time: "09:30", mode: "hotel", title: "เช็คเอาท์ (ฝากกระเป๋าไว้)", who: "Boy · Jaruwan", note: "Teera · Bim พักต่ออีก 1 คืน ไม่ต้องเช็คเอาท์" },
+      { time: "09:30", mode: "hotel", title: "เช็คเอาท์ (ฝากกระเป๋าไว้)", who: "Boy · Mom", note: "Ik · Bim พักต่ออีก 1 คืน ไม่ต้องเช็คเอาท์" },
       { time: "10:00", mode: "shop", title: "ซื้อของฝากที่ตลาด Ameyoko", map: "Ameyoko" },
       { time: "11:00", mode: "shop", title: "แกดเจ็ตที่ Akihabara", map: "Akihabara" },
       { time: "15:00", mode: "walk", title: "เดินเล่น Ginza หรือ Arcakit Kinshicho", map: "Ginza" },
       { time: "18:00", mode: "food", title: "มื้อเย็น" },
-      { time: "21:00", mode: "train", title: "รถไฟตรงไปสนามบิน Haneda Terminal 2", price: "≈ ¥610 / ผู้ใหญ่", how: "Asakusa → Haneda · Airport Limited Express · ลงสถานี Terminal 2", who: "Boy · Jaruwan", map: "Haneda Airport Terminal 2" },
+      { time: "21:00", mode: "train", title: "รถไฟตรงไปสนามบิน Haneda Terminal 2", price: "≈ ¥610 / ผู้ใหญ่", how: "Asakusa → Haneda · Airport Limited Express · ลงสถานี Terminal 2", who: "Boy · Mom", map: "Haneda Airport Terminal 2" },
     ],
   },
   {
@@ -170,12 +170,12 @@ export const DAYS = [
     title: "เดินทางกลับ",
     route: "Haneda / Narita → Bangkok",
     items: [
-      { time: "01:25", mode: "plane", title: "บินออกจาก Haneda Terminal 2", how: "ANA NH877", who: "Boy · Jaruwan", map: "Haneda Airport Terminal 2" },
-      { time: "06:30", mode: "plane", title: "ถึงสุวรรณภูมิ", who: "Boy · Jaruwan" },
-      { time: "09:00", mode: "hotel", title: "เช็คเอาท์ MONday Apart", who: "Teera · Bim" },
-      { time: "09:15", mode: "train", title: "เดินทางไปสนามบิน Narita Terminal 2", how: "Keisei Access Express จาก Asakusa (มีขบวนตรงถึง Narita) · ประมาณ 1 ชม.", note: "เวลาออกเป็นเวลาแนะนำ เผื่อเช็คอินก่อนบิน 2–3 ชม.", who: "Teera · Bim", map: "Asakusa Station" },
-      { time: "12:10", mode: "plane", title: "บินออกจาก Narita Terminal 2", how: "AirAsia XJ603", who: "Teera · Bim", map: "Narita International Airport Terminal 2" },
-      { time: "17:40", mode: "plane", title: "ถึงดอนเมือง (Terminal 1)", who: "Teera · Bim" },
+      { time: "01:25", mode: "plane", title: "บินออกจาก Haneda Terminal 2", how: "ANA NH877", who: "Boy · Mom", map: "Haneda Airport Terminal 2" },
+      { time: "06:30", mode: "plane", title: "ถึงสุวรรณภูมิ", who: "Boy · Mom" },
+      { time: "09:00", mode: "hotel", title: "เช็คเอาท์ MONday Apart", who: "Ik · Bim" },
+      { time: "09:15", mode: "train", title: "เดินทางไปสนามบิน Narita Terminal 2", how: "Keisei Access Express จาก Asakusa (มีขบวนตรงถึง Narita) · ประมาณ 1 ชม.", note: "เวลาออกเป็นเวลาแนะนำ เผื่อเช็คอินก่อนบิน 2–3 ชม.", who: "Ik · Bim", map: "Asakusa Station" },
+      { time: "12:10", mode: "plane", title: "บินออกจาก Narita Terminal 2", how: "AirAsia XJ603", who: "Ik · Bim", map: "Narita International Airport Terminal 2" },
+      { time: "17:40", mode: "plane", title: "ถึงดอนเมือง (Terminal 1)", who: "Ik · Bim" },
     ],
   },
 ];
@@ -190,12 +190,12 @@ export const TIPS = [
 
 export const DEFAULT_MEMBERS = [
   { id: "boy", name: "Boy" },
-  { id: "jaruwan", name: "Jaruwan" },
-  { id: "teera", name: "Teera" },
+  { id: "jaruwan", name: "Mom" },
+  { id: "teera", name: "Ik" },
   { id: "bim", name: "Bim" },
 ];
 
-// ค่าเริ่มต้นของ "หารกับ" ตอนเพิ่มรายการใหม่ (Jaruwan ไม่ร่วมหาร) — แก้ทีละรายการได้
+// ค่าเริ่มต้นของ "หารกับ" ตอนเพิ่มรายการใหม่ (Mom ไม่ร่วมหาร) — แก้ทีละรายการได้
 export const DEFAULT_SPLIT = ["boy", "teera", "bim"];
 
 export const DEFAULT_RATE = 0.21; // 1 JPY = 0.21 THB (ตาม Excel)
