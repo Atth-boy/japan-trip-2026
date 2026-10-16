@@ -44,7 +44,7 @@ export const HOTELS = [
 export const FLIGHTS = [
   { no: "NH808", airline: "ANA", from: "BKK", to: "NRT", dep: "20 ต.ค. 23:35", arr: "21 ต.ค. 07:45", who: "Boy · Jaruwan" },
   { no: "XJ600", airline: "AirAsia", from: "DMK", to: "NRT T2", dep: "20 ต.ค. 23:55", arr: "21 ต.ค. 08:00", who: "Teera · Bim" },
-  { no: "NH877", airline: "ANA", from: "HND", to: "BKK", dep: "28 ต.ค. 01:25", arr: "28 ต.ค. 06:30", who: "Boy · Jaruwan" },
+  { no: "NH877", airline: "ANA (AirJapan)", from: "HND T2", to: "BKK", dep: "28 ต.ค. 01:25", arr: "28 ต.ค. 06:30", who: "Boy · Jaruwan" },
   { no: "XJ603", airline: "AirAsia", from: "NRT T2", to: "DMK", dep: "28 ต.ค. 12:10", arr: "28 ต.ค. 17:40", who: "Teera · Bim" },
 ];
 
@@ -162,7 +162,7 @@ export const DAYS = [
       { time: "11:00", mode: "shop", title: "แกดเจ็ตที่ Akihabara", map: "Akihabara" },
       { time: "15:00", mode: "walk", title: "เดินเล่น Ginza หรือ Arcakit Kinshicho", map: "Ginza" },
       { time: "18:00", mode: "food", title: "มื้อเย็น" },
-      { time: "21:00", mode: "train", title: "รถไฟตรงไปสนามบิน Haneda", price: "≈ ¥610 / ผู้ใหญ่", how: "Asakusa → Haneda · Airport Limited Express", who: "Boy · Jaruwan", map: "Haneda Airport Terminal 3" },
+      { time: "21:00", mode: "train", title: "รถไฟตรงไปสนามบิน Haneda Terminal 2", price: "≈ ¥610 / ผู้ใหญ่", how: "Asakusa → Haneda · Airport Limited Express · ลงสถานี Terminal 2", who: "Boy · Jaruwan", map: "Haneda Airport Terminal 2" },
     ],
   },
   {
@@ -170,7 +170,7 @@ export const DAYS = [
     title: "เดินทางกลับ",
     route: "Haneda / Narita → Bangkok",
     items: [
-      { time: "01:25", mode: "plane", title: "บินออกจาก Haneda", how: "ANA NH877", who: "Boy · Jaruwan" },
+      { time: "01:25", mode: "plane", title: "บินออกจาก Haneda Terminal 2", how: "ANA NH877 · ให้บริการโดย AirJapan · Boeing 787-8", who: "Boy · Jaruwan", map: "Haneda Airport Terminal 2" },
       { time: "06:30", mode: "plane", title: "ถึงสุวรรณภูมิ", who: "Boy · Jaruwan" },
       { time: "09:00", mode: "hotel", title: "เช็คเอาท์ MONday Apart", who: "Teera · Bim" },
       { time: "09:15", mode: "train", title: "เดินทางไปสนามบิน Narita Terminal 2", how: "Keisei Access Express จาก Asakusa (มีขบวนตรงถึง Narita) · ประมาณ 1 ชม.", note: "เวลาออกเป็นเวลาแนะนำ เผื่อเช็คอินก่อนบิน 2–3 ชม.", who: "Teera · Bim", map: "Asakusa Station" },
