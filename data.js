@@ -126,8 +126,8 @@ export const DAYS = [
       { time: "11:30", mode: "walk", title: "สวน Toyosu Park", map: "Toyosu Park" },
       { time: "12:30", mode: "food", title: "มื้อกลางวัน" },
       { time: "13:30", mode: "spot", title: "teamLab Planets TOYOSU", price: "≈ ¥5,000 / ผู้ใหญ่", how: "จองบัตรแล้ว", map: "teamLab Planets TOKYO" },
-      { time: "16:00", mode: "walk", title: "ไปจับจองจุดชมพลุ" },
-      { time: "19:00", mode: "spot", title: "Tokyo Bay Grand Fireworks", price: "≈ ¥10,000 / ผู้ใหญ่", how: "จองบัตรแล้ว", highlight: true },
+      { time: "16:00", mode: "walk", title: "เข้าพื้นที่ชมพลุตามบัตร", how: "พื้นที่ชมอยู่โซน Toyosu / Ariake · ดูทางเข้าและเวลาเข้าในบัตร" },
+      { time: "17:30", mode: "spot", title: "Tokyo Bay Grand Fireworks", price: "≈ ¥10,000 / ผู้ใหญ่", how: "17:30–19:00 · ยิงจากนอกท่าเรือ Harumi · จองบัตรแล้ว", note: "เข้าได้เฉพาะคนมีบัตร · ถ้าอากาศแย่จะยกเลิกและไม่มีวันสำรอง", highlight: true },
     ],
   },
   {
