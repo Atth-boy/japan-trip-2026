@@ -76,6 +76,7 @@ export const DAYS = [
       { time: "07:45", mode: "plane", title: "ถึงสนามบิน Narita Terminal 1", how: "ANA NH808 · ผ่าน ตม. และรับกระเป๋า", who: "Boy · Mom", map: "Narita International Airport Terminal 1" },
       { time: "08:00", mode: "plane", title: "ถึงสนามบิน Narita Terminal 2", how: "AirAsia XJ600 · ผ่าน ตม. และรับกระเป๋า", who: "Ik · Bim", note: "ANA ลง Terminal 1 · AirAsia ลง Terminal 2 — นัดจุดเจอกันก่อนไปรับรถเช่า", map: "Narita International Airport Terminal 2" },
       { time: "09:30", mode: "car", title: "รับรถเช่าที่ Narita แล้วขับไป Matsumoto", how: "รถเช่า · ประมาณ 4.5–5 ชม.", note: "สลับกันขับ เผื่อเพลียจากไฟลต์ดึก" },
+      { time: "12:00", mode: "food", title: "แวะพัก Dangozaka SA (ขาลง) · มื้อกลางวัน", how: "Chuo Expressway ฝั่งขาลงไปทาง Matsumoto · ศูนย์อาหาร “麺工房” เปิด 24 ชม.", price: "โฮโต ≈ ¥1,100–1,200", note: "ลองโฮโต (ほうとう) บะหมี่เส้นแบนซุปมิโซะ อาหารขึ้นชื่อยามานาชิ · มีแบบ “つけ麺ほうとう” จิ้มน้ำซุปใสด้วย · เวลาถึงขึ้นกับรถติดช่วงผ่านโตเกียว", map: "談合坂サービスエリア 下り" },
       { time: "15:30", mode: "hotel", title: "ถึง Matsumoto · เช็คอิน TABINO HOTEL lit", price: "ทางด่วน ETC ≈ ¥6,080 / คัน", how: "ทางด่วน (ETC)", map: "TABINO HOTEL lit Matsumoto" },
       { time: "16:30", mode: "spot", title: "ปราสาท Matsumoto", price: "≈ ¥1,300 / ผู้ใหญ่", how: "ต้องซื้อบัตรเข้าชม", map: "Matsumoto Castle" },
       { time: "18:00", mode: "food", title: "มื้อเย็น" },
